@@ -3,17 +3,33 @@
    ---------------------------------------------------------
    Messages are delivered by Web3Forms (https://web3forms.com),
    so your email address never appears on the site.
-   Paste your free access key below.
+   Paste your free access key below (see README.md).
    ========================================================= */
 var WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
 var SITE_OWNER = "James Stein";
+
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var finePointer = window.matchMedia("(pointer: fine)").matches;
 
 // Footer year
 document.querySelectorAll("[data-year]").forEach(function (el) {
   el.textContent = new Date().getFullYear();
 });
 
-// Hairline under the header once the page scrolls
+// Local time in DeLand (Eastern)
+(function () {
+  var clocks = document.querySelectorAll("[data-clock]");
+  if (!clocks.length) return;
+  var fmt = new Intl.DateTimeFormat("en-US", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "America/New_York" });
+  function tick() {
+    var t = fmt.format(new Date());
+    clocks.forEach(function (c) { c.textContent = t; });
+  }
+  tick();
+  setInterval(tick, 15000);
+})();
+
+// Header border once scrolled
 (function () {
   var header = document.querySelector(".site-header");
   if (!header) return;
@@ -22,30 +38,134 @@ document.querySelectorAll("[data-year]").forEach(function (el) {
   window.addEventListener("scroll", update, { passive: true });
 })();
 
+// Cursor spotlight on the dot grid + glow inside cards
+(function () {
+  if (!finePointer || reduceMotion) return;
+  var root = document.documentElement;
+  var raf = 0, mx = 0, my = 0;
+  window.addEventListener("pointermove", function (e) {
+    mx = e.clientX; my = e.clientY;
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      raf = 0;
+      root.style.setProperty("--mx", mx + "px");
+      root.style.setProperty("--my", my + "px");
+      root.style.setProperty("--spot", "1");
+    });
+  }, { passive: true });
+  document.addEventListener("pointerleave", function () { root.style.setProperty("--spot", "0"); });
+
+  document.querySelectorAll(".card").forEach(function (card) {
+    card.addEventListener("pointermove", function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--x", (e.clientX - r.left) + "px");
+      card.style.setProperty("--y", (e.clientY - r.top) + "px");
+    });
+  });
+})();
+
+// Workflow console log (example run)
+(function () {
+  var log = document.querySelector("[data-log]");
+  if (!log) return;
+
+  var runs = [
+    [
+      ["→", "Email received", "“Can you quote 40 units by Friday?”"],
+      ["◆", "Classified", "quote_request · confidence 0.98"],
+      ["◆", "Drafted quote", "from price sheet · ready for review"],
+      ["→", "Synced", "deal created in CRM"],
+      ["→", "Notified", "#sales in team chat"],
+      ["✓", "Done", "3.2s · 0 manual steps"]
+    ],
+    [
+      ["→", "Form submitted", "new client onboarding"],
+      ["◆", "Extracted", "company, contacts, scope"],
+      ["→", "Created", "project, folder and task list"],
+      ["◆", "Drafted", "welcome email for review"],
+      ["✓", "Done", "4.1s · 0 manual steps"]
+    ],
+    [
+      ["→", "Invoice received", "PDF · 3 pages"],
+      ["◆", "Read", "vendor, amount, due date"],
+      ["◆", "Matched", "PO-1142 · amounts agree"],
+      ["→", "Queued", "for approval in invoicing"],
+      ["✓", "Done", "2.7s · 0 manual steps"]
+    ]
+  ];
+
+  var tfmt = new Intl.DateTimeFormat("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+  var MAX = 6;
+
+  function line(row, cls) {
+    var el = document.createElement("div");
+    el.className = "log-line" + (row[0] === "✓" ? " done" : "") + (cls ? " " + cls : "");
+    var parts = [["ts", tfmt.format(new Date())], ["sym", row[0]], ["msg", row[1]], ["detail", row[2]]];
+    parts.forEach(function (p) {
+      var s = document.createElement("span");
+      s.className = p[0];
+      s.textContent = p[1];
+      el.appendChild(s);
+    });
+    log.appendChild(el);
+    while (log.children.length > MAX) log.removeChild(log.firstChild);
+  }
+
+  if (reduceMotion) {
+    runs[0].forEach(function (r) { line(r); });
+    return;
+  }
+
+  var run = 0, step = 0;
+  function next() {
+    var rows = runs[run];
+    line(rows[step]);
+    step++;
+    if (step >= rows.length) {
+      step = 0;
+      run = (run + 1) % runs.length;
+      setTimeout(next, 2600);
+    } else {
+      setTimeout(next, 650 + Math.random() * 500);
+    }
+  }
+  setTimeout(next, 900);
+})();
+
+// Reading progress on posts
+(function () {
+  var bar = document.querySelector("[data-progress]");
+  if (!bar) return;
+  function update() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.setProperty("--p", h > 0 ? Math.min(1, window.scrollY / h) : 0);
+  }
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+})();
+
 // Contact form (modal on every page, inline on contact.html)
 (function () {
-  var uid = 0;
-
   function formMarkup() {
-    var n = ++uid;
     return (
       '<form class="contact-form" novalidate>' +
         '<div class="form-body">' +
           '<div class="field-row">' +
             '<label class="field"><span>Name</span>' +
-              '<input name="name" type="text" autocomplete="name" required maxlength="100" id="cf-name-' + n + '"></label>' +
+              '<input name="name" type="text" autocomplete="name" required maxlength="100"></label>' +
             '<label class="field"><span>Email</span>' +
-              '<input name="email" type="email" autocomplete="email" required maxlength="200" id="cf-email-' + n + '"></label>' +
+              '<input name="email" type="email" autocomplete="email" required maxlength="200"></label>' +
           '</div>' +
           '<div class="field-row">' +
-            '<label class="field"><span>I\'m interested in</span>' +
+            '<label class="field"><span>Interested in</span>' +
               '<select name="project_type">' +
                 '<option>AI integration</option>' +
                 '<option>Workflow automation</option>' +
                 '<option>A custom application</option>' +
                 '<option>Not sure yet, let\'s talk</option>' +
               '</select></label>' +
-            '<label class="field"><span>Budget <em class="optional">optional</em></span>' +
+            '<label class="field"><span>Budget <em class="optional">· optional</em></span>' +
               '<select name="budget">' +
                 '<option value="">Prefer not to say</option>' +
                 '<option>Under $2,500</option>' +
@@ -60,7 +180,7 @@ document.querySelectorAll("[data-year]").forEach(function (el) {
           '<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">' +
           '<p class="form-error" role="alert" hidden></p>' +
           '<button class="button submit" type="submit"><span class="label">Send message</span> <span class="arrow" aria-hidden="true">&rarr;</span></button>' +
-          '<p class="form-note">Your message comes straight to me. No mailing lists, ever.</p>' +
+          '<p class="form-note">Goes straight to me &middot; never shared &middot; no mailing lists</p>' +
         '</div>' +
         '<div class="form-success" hidden tabindex="-1">' +
           '<div class="success-mark" aria-hidden="true">&check;</div>' +
@@ -113,7 +233,6 @@ document.querySelectorAll("[data-year]").forEach(function (el) {
       };
 
       submit.disabled = true;
-      form.classList.add("is-sending");
       label.textContent = "Sending…";
 
       fetch("https://api.web3forms.com/submit", {
@@ -137,7 +256,6 @@ document.querySelectorAll("[data-year]").forEach(function (el) {
         })
         .then(function () {
           submit.disabled = false;
-          form.classList.remove("is-sending");
           label.textContent = "Send message";
         });
     });
@@ -150,18 +268,21 @@ document.querySelectorAll("[data-year]").forEach(function (el) {
     wire(mount.querySelector("form"));
   }
 
-  // Modal for every other "Get in touch" button
+  // Modal for every other "Start a project" button
   var dialog;
   function buildDialog() {
     dialog = document.createElement("dialog");
     dialog.className = "contact-dialog";
     dialog.setAttribute("aria-labelledby", "contact-title");
     dialog.innerHTML =
-      '<button class="dialog-close" type="button" aria-label="Close">&times;</button>' +
-      '<span class="eyebrow">Start a project</span>' +
-      '<h2 id="contact-title">Let\'s talk.</h2>' +
-      '<p class="dialog-lead">Tell me a little about how your team works today and where it gets stuck. I\'ll be in touch.</p>' +
-      formMarkup();
+      '<div class="dialog-bar"><span>new_project.form</span>' +
+        '<button class="dialog-close" type="button" aria-label="Close">ESC</button></div>' +
+      '<div class="dialog-inner">' +
+        '<p class="kicker"><span class="live-dot" aria-hidden="true"></span>Start a project</p>' +
+        '<h2 id="contact-title">Let\'s talk.</h2>' +
+        '<p class="dialog-lead">Tell me a little about how your team works today and where it gets stuck. I\'ll be in touch.</p>' +
+        formMarkup() +
+      '</div>';
     document.body.appendChild(dialog);
     wire(dialog.querySelector("form"));
 
@@ -171,7 +292,6 @@ document.querySelectorAll("[data-year]").forEach(function (el) {
     });
     dialog.addEventListener("close", function () {
       document.documentElement.classList.remove("modal-open");
-      // Reset to a fresh form after a successful send
       var form = dialog.querySelector("form");
       if (!form.querySelector(".form-success").hidden) {
         form.querySelector(".form-success").hidden = true;

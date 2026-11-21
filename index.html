@@ -5,54 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>James Stein — AI integrations, automation &amp; custom software</title>
   <meta name="description" content="James Stein helps businesses put AI to work, automate repetitive workflows, and build custom applications designed around how they operate.">
-  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d0d0b" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%2314130f'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23f6f4ef' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#08090b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f3f0" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='8' fill='%230e1014'/%3E%3Crect x='6.5' y='7.5' width='7' height='5.5' rx='1.6' fill='%23ededee'/%3E%3Crect x='14.5' y='15' width='7' height='5.5' rx='1.6' fill='%23ff6b2c'/%3E%3Cpath d='M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15' stroke='%23ededee' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html"><span class="brand-mark">J</span>James Stein</a>
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="James Stein, home">
+        <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" width="28" height="28" rx="8"/><rect class="bm-node" x="6.5" y="7.5" width="7" height="5.5" rx="1.6"/><rect class="bm-hot" x="14.5" y="15" width="7" height="5.5" rx="1.6"/><path class="bm-line" d="M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15"/></svg>
+        <span class="brand-name">James Stein</span>
+      </a>
       <nav class="nav" aria-label="Main">
-        <a href="index.html" aria-current="page">Home</a>
+        <a class="nav-home" href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="blog.html">Journal</a>
-        <a class="button small" href="contact.html" data-contact>Get in touch</a>
       </nav>
+      <a class="button button-sm" href="contact.html" data-contact>Start a project</a>
     </div>
   </header>
 
-  <main id="main" class="hero container">
-    <p class="status reveal" style="--i:0"><span class="status-dot" aria-hidden="true"></span>Taking on new projects for early 2027</p>
+  <main id="main" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker reveal" style="--i:0"><span class="live-dot" aria-hidden="true"></span>Taking on projects for Q1 2027</p>
+        <h1 class="reveal" style="--i:1">Software that fits <span class="dim">the way you work.</span><span class="caret" aria-hidden="true"></span></h1>
+        <p class="lede reveal" style="--i:2">I help teams put AI to work, automate the repetitive parts of their day, and build custom tools around how they actually operate. Not one-size-fits-all software.</p>
+        <div class="actions reveal" style="--i:3">
+          <a class="button" href="contact.html" data-contact>Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="button button-ghost" href="about.html">How I work</a>
+        </div>
+      </div>
 
-    <h1 class="reveal" style="--i:1">Software that fits the way you <em>work</em>.</h1>
+      <figure class="console reveal" style="--i:3" aria-label="Example of an automated workflow: an AI agent reads an incoming request and routes it to a CRM, invoicing and team chat.">
+        <div class="console-bar">
+          <span class="chip"><i></i>Running</span>
+          <span class="path">workflows / quote-request</span>
+          <span class="tag">Example</span>
+        </div>
 
-    <p class="tagline reveal" style="--i:2">I help teams put AI to work, automate the repetitive parts of their day, and build custom tools around how they actually operate&nbsp;&mdash; not one-size-fits-all software.</p>
+        <svg class="graph" viewBox="0 0 520 300" aria-hidden="true">
+          <path id="e1" class="edge" d="M128 68 C 168 68, 164 150, 204 150"/>
+          <path id="e2" class="edge" d="M128 232 C 168 232, 164 150, 204 150"/>
+          <path id="e3" class="edge" d="M328 150 C 368 150, 364 48, 404 48"/>
+          <path id="e4" class="edge" d="M328 150 L 404 150"/>
+          <path id="e5" class="edge" d="M328 150 C 368 150, 364 252, 404 252"/>
 
-    <div class="actions reveal" style="--i:3">
-      <a class="button" href="contact.html" data-contact>Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <circle class="packet" r="3"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite"><mpath href="#e1"/></animateMotion></circle>
+          <circle class="packet" r="3"><animateMotion dur="2.4s" begin="1.3s" repeatCount="indefinite"><mpath href="#e2"/></animateMotion></circle>
+          <circle class="packet" r="3"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite"><mpath href="#e3"/></animateMotion></circle>
+          <circle class="packet" r="3"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite"><mpath href="#e4"/></animateMotion></circle>
+          <circle class="packet" r="3"><animateMotion dur="2.4s" begin="2s" repeatCount="indefinite"><mpath href="#e5"/></animateMotion></circle>
+
+          <g class="node" transform="translate(16 48)"><rect width="112" height="40" rx="10"/><circle class="nd" cx="18" cy="20" r="3"/><text x="30" y="24">Inbox</text></g>
+          <g class="node" transform="translate(16 212)"><rect width="112" height="40" rx="10"/><circle class="nd" cx="18" cy="20" r="3"/><text x="30" y="24">Web form</text></g>
+
+          <g class="node node-ai" transform="translate(204 118)"><rect class="halo" width="124" height="64" rx="12"/><rect width="124" height="64" rx="12"/><text x="16" y="28">AI agent</text><text class="sub" x="16" y="46">classify · draft</text></g>
+
+          <g class="node out" transform="translate(404 28)"><rect width="100" height="40" rx="10"/><circle class="nd" cx="18" cy="20" r="3"/><text x="30" y="24">CRM</text></g>
+          <g class="node out" transform="translate(404 130)"><rect width="100" height="40" rx="10"/><circle class="nd" cx="18" cy="20" r="3"/><text x="30" y="24">Invoices</text></g>
+          <g class="node out" transform="translate(404 232)"><rect width="100" height="40" rx="10"/><circle class="nd" cx="18" cy="20" r="3"/><text x="30" y="24">Team chat</text></g>
+        </svg>
+
+        <div class="console-log" data-log aria-hidden="true"></div>
+      </figure>
     </div>
 
-    <div class="hero-meta reveal" style="--i:4">
-      <div><span class="eyebrow">Based in</span><span>DeLand, Florida</span></div>
-      <div><span class="eyebrow">Focus</span><span>AI &middot; Automation &middot; Custom Apps</span></div>
-      <div><span class="eyebrow">Read</span><a class="link-arrow" href="about.html">More about me <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
+    <div class="container">
+      <dl class="meta-strip reveal" style="--i:5">
+        <div><dt>Based in</dt><dd>DeLand, Florida</dd></div>
+        <div><dt>Local time</dt><dd><span data-clock>--:--</span> ET</dd></div>
+        <div><dt>Focus</dt><dd>AI &middot; Automation &middot; Custom apps</dd></div>
+        <div><dt>Latest note</dt><dd><a href="posts/every-office-has-a-spreadsheet.html">The FINAL_v7 problem &rarr;</a></dd></div>
+      </dl>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <span>&copy; <span data-year>2026</span> James Stein</span>
-      <div class="footer-links">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" width="28" height="28" rx="8"/><rect class="bm-node" x="6.5" y="7.5" width="7" height="5.5" rx="1.6"/><rect class="bm-hot" x="14.5" y="15" width="7" height="5.5" rx="1.6"/><path class="bm-line" d="M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15"/></svg>James Stein</a>
+        <p>AI integrations, automation &amp; custom software.<br>DeLand, Florida.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
         <a href="contact.html" data-contact>Contact</a>
         <a href="about.html">About</a>
         <a href="blog.html">Journal</a>
+      </nav>
+      <div class="footer-meta">
+        <span class="status"><span class="live-dot" aria-hidden="true"></span>All systems normal</span>
+        <span>&copy; <span data-year>2026</span> James Stein</span>
       </div>
     </div>
   </footer>

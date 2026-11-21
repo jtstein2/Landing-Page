@@ -5,89 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About — James Stein</title>
   <meta name="description" content="About James Stein: AI integrations, workflow automation and custom applications built around how your business operates.">
-  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d0d0b" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%2314130f'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23f6f4ef' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#08090b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f3f0" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='8' fill='%230e1014'/%3E%3Crect x='6.5' y='7.5' width='7' height='5.5' rx='1.6' fill='%23ededee'/%3E%3Crect x='14.5' y='15' width='7' height='5.5' rx='1.6' fill='%23ff6b2c'/%3E%3Cpath d='M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15' stroke='%23ededee' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html"><span class="brand-mark">J</span>James Stein</a>
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="James Stein, home">
+        <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" width="28" height="28" rx="8"/><rect class="bm-node" x="6.5" y="7.5" width="7" height="5.5" rx="1.6"/><rect class="bm-hot" x="14.5" y="15" width="7" height="5.5" rx="1.6"/><path class="bm-line" d="M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15"/></svg>
+        <span class="brand-name">James Stein</span>
+      </a>
       <nav class="nav" aria-label="Main">
-        <a href="index.html">Home</a>
+        <a class="nav-home" href="index.html">Home</a>
         <a href="about.html" aria-current="page">About</a>
         <a href="blog.html">Journal</a>
-        <a class="button small" href="contact.html" data-contact>Get in touch</a>
       </nav>
+      <a class="button button-sm" href="contact.html" data-contact>Start a project</a>
     </div>
   </header>
 
   <main id="main">
     <section class="page-head container">
-      <span class="eyebrow reveal" style="--i:0">About</span>
-      <h1 class="reveal" style="--i:1">Built around how you <em>actually</em> work.</h1>
+      <p class="kicker reveal" style="--i:0"><span class="idx">01</span> / About</p>
+      <h1 class="reveal" style="--i:1">Built around how you <span class="dim">actually work.</span></h1>
     </section>
 
-    <section class="about-grid container">
-      <div class="portrait reveal" style="--i:2">
-        <!-- Replace with: <img src="images/portrait.jpg" alt="Portrait of James Stein"> -->
-        <span aria-hidden="true">J</span>
+    <section class="intro-grid container">
+      <div class="card id-card reveal" style="--i:2">
+        <div class="id-photo">
+          <!-- Replace with: <img src="images/portrait.jpg" alt="Portrait of James Stein"> -->
+          <span class="initials" aria-hidden="true">JS</span>
+        </div>
+        <dl class="id-meta">
+          <div><dt>Name</dt><dd>James Stein</dd></div>
+          <div><dt>Location</dt><dd>DeLand, FL</dd></div>
+          <div><dt>Coordinates</dt><dd>29.03&deg;N 81.30&deg;W</dd></div>
+          <div><dt>Status</dt><dd>Available</dd></div>
+        </dl>
       </div>
+
       <div class="prose reveal" style="--i:3">
-        <p>I'm James. I help businesses connect AI to their everyday work, automate the processes that eat their team's time, and build custom applications that fit their operations.</p>
+        <p class="big">I'm James. I help businesses connect AI to their everyday work, automate the processes that eat their team's time, and build custom applications that fit their operations.</p>
         <!-- Bio goes here: two or three sentences on your background, what you've built, and who you like working with. -->
         <p>Off-the-shelf software asks you to change how you work. I start the other way around: learn how your team really operates, then build the tool, integration or automation that makes the biggest difference.</p>
         <p>Every project gets my direct attention from first conversation to handoff: clear communication, honest timelines, and no surprises on the invoice.</p>
-        <p><a class="link-arrow" href="contact.html" data-contact>Tell me about your project <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+        <p><a class="link" href="contact.html" data-contact>Tell me about your project <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
       </div>
     </section>
+
+    <hr class="rule">
 
     <section class="section container">
       <div class="section-head">
         <h2>What I do</h2>
-        <span class="eyebrow">Services</span>
+        <p>Three ways in. Most projects end up using a bit of each.</p>
       </div>
-      <ul class="services">
-        <li>
-          <span class="num">01</span>
+
+      <div class="bento">
+        <article class="card span-4">
+          <span class="num">01 / AI integration</span>
+          <div class="viz viz-ai" aria-hidden="true">
+            <div class="in">&ldquo;Hi, can we get 40 of the large units by Friday? Same billing as last time.&rdquo;</div>
+            <div class="mid">&rarr;</div>
+            <div class="out">{<br>&nbsp;&nbsp;<span class="k">"intent"</span>: <span class="s">"quote"</span>,<br>&nbsp;&nbsp;<span class="k">"qty"</span>: <span class="n">40</span>,<br>&nbsp;&nbsp;<span class="k">"due"</span>: <span class="s">"Fri"</span><br>}</div>
+          </div>
           <h3>AI integration</h3>
-          <p>Connect AI to your data and the tools you already use, so it handles real work: drafting, summarizing, sorting and answering.</p>
-        </li>
-        <li>
-          <span class="num">02</span>
+          <p>Connect AI to your data and the tools you already use, so it handles real work: reading, sorting, drafting and answering.</p>
+        </article>
+
+        <article class="card span-2">
+          <span class="num">02 / Automation</span>
+          <div class="viz" aria-hidden="true">
+            <div class="viz-pipe"><span class="stage"></span><span class="stage"></span><span class="stage"></span><span class="stage"></span><span class="pulse"></span></div>
+            <div class="viz-pipe-labels"><span>Trigger</span><span>Done</span></div>
+          </div>
           <h3>Workflow automation</h3>
-          <p>Replace copy-and-paste, manual handoffs and spreadsheet juggling with reliable processes that run on their own.</p>
-        </li>
-        <li>
-          <span class="num">03</span>
+          <p>Replace copy-and-paste, manual handoffs and spreadsheet juggling with processes that run on their own.</p>
+        </article>
+
+        <article class="card span-3">
+          <span class="num">03 / Custom apps</span>
+          <div class="viz viz-app" aria-hidden="true">
+            <div class="side"><span class="bar hot"></span><span class="bar"></span><span class="bar" style="width:80%"></span><span class="bar" style="width:60%"></span></div>
+            <div class="main">
+              <div class="row"><span class="bar"></span><span class="pill"></span></div>
+              <div class="row sel"><span class="bar"></span><span class="pill"></span></div>
+              <div class="row"><span class="bar" style="flex:.7"></span><span class="pill"></span></div>
+              <div class="row"><span class="bar" style="flex:.85"></span><span class="pill"></span></div>
+            </div>
+          </div>
           <h3>Custom applications</h3>
           <p>Internal tools and web apps designed around your operations, built to fit your team instead of forcing a workaround.</p>
-        </li>
-      </ul>
+        </article>
+
+        <article class="card span-3 statement">
+          <span class="num">// Principle</span>
+          <blockquote>Not one-size-fits-all. <em>Built to fit.</em></blockquote>
+        </article>
+      </div>
     </section>
 
-    <section class="cta container">
-      <span class="eyebrow">Have something in mind?</span>
-      <h2>Let's take something off your <em>plate</em>.</h2>
-      <div class="actions">
-        <a class="button" href="contact.html" data-contact>Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    <hr class="rule">
+
+    <section class="section container">
+      <div class="section-head">
+        <h2>How I work</h2>
+        <p>Small, useful steps. You see working software early and often.</p>
+      </div>
+      <ol class="process">
+        <li>
+          <span class="step">Step 01</span>
+          <h3>Map the process</h3>
+          <p>Learn how your team really works today and find the steps that make everyone sigh.</p>
+        </li>
+        <li>
+          <span class="step">Step 02</span>
+          <h3>Build the useful thing</h3>
+          <p>Ship the smallest tool that makes a real difference, test it on real work, and refine.</p>
+        </li>
+        <li>
+          <span class="step">Step 03</span>
+          <h3>Hand off &amp; support</h3>
+          <p>Documentation, training and ongoing support, so it keeps working long after launch.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="container">
+      <div class="cta-panel">
+        <p class="kicker"><span class="idx">&gt;</span> Have something in mind?</p>
+        <h2>Let's take something off your plate.</h2>
+        <div class="actions">
+          <a class="button" href="contact.html" data-contact>Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="button button-ghost" href="blog.html">Read the journal</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <span>&copy; <span data-year>2026</span> James Stein</span>
-      <div class="footer-links">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" width="28" height="28" rx="8"/><rect class="bm-node" x="6.5" y="7.5" width="7" height="5.5" rx="1.6"/><rect class="bm-hot" x="14.5" y="15" width="7" height="5.5" rx="1.6"/><path class="bm-line" d="M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15"/></svg>James Stein</a>
+        <p>AI integrations, automation &amp; custom software.<br>DeLand, Florida.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
         <a href="contact.html" data-contact>Contact</a>
         <a href="about.html">About</a>
         <a href="blog.html">Journal</a>
+      </nav>
+      <div class="footer-meta">
+        <span class="status"><span class="live-dot" aria-hidden="true"></span>All systems normal</span>
+        <span>&copy; <span data-year>2026</span> James Stein</span>
       </div>
     </div>
   </footer>

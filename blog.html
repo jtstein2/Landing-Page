@@ -5,34 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Journal — James Stein</title>
   <meta name="description" content="Notes on AI, automation and building software that fits, by James Stein.">
-  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d0d0b" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%2314130f'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23f6f4ef' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#08090b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f3f0" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='8' fill='%230e1014'/%3E%3Crect x='6.5' y='7.5' width='7' height='5.5' rx='1.6' fill='%23ededee'/%3E%3Crect x='14.5' y='15' width='7' height='5.5' rx='1.6' fill='%23ff6b2c'/%3E%3Cpath d='M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15' stroke='%23ededee' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html"><span class="brand-mark">J</span>James Stein</a>
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="James Stein, home">
+        <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" width="28" height="28" rx="8"/><rect class="bm-node" x="6.5" y="7.5" width="7" height="5.5" rx="1.6"/><rect class="bm-hot" x="14.5" y="15" width="7" height="5.5" rx="1.6"/><path class="bm-line" d="M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15"/></svg>
+        <span class="brand-name">James Stein</span>
+      </a>
       <nav class="nav" aria-label="Main">
-        <a href="index.html">Home</a>
+        <a class="nav-home" href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="blog.html" aria-current="page">Journal</a>
-        <a class="button small" href="contact.html" data-contact>Get in touch</a>
       </nav>
+      <a class="button button-sm" href="contact.html" data-contact>Start a project</a>
     </div>
   </header>
 
   <main id="main">
     <section class="page-head container">
-      <span class="eyebrow reveal" style="--i:0">Journal</span>
-      <h1 class="reveal" style="--i:1">Notes on putting AI to <em>work</em>.</h1>
-      <p class="lead reveal" style="--i:2">Occasional writing on AI, automation, and building software that fits the way people actually work.</p>
+      <p class="kicker reveal" style="--i:0"><span class="idx">02</span> / Journal</p>
+      <h1 class="reveal" style="--i:1">Notes on putting AI <span class="dim">to work.</span></h1>
+      <p class="lede reveal" style="--i:2">Occasional writing on AI, automation, and building software that fits the way people actually work.</p>
     </section>
 
     <section class="container reveal" style="--i:3">
@@ -45,6 +48,7 @@
               <h2>Every office has a spreadsheet named FINAL_v7</h2>
               <p>AI can now build the small, custom tools your business has been duct-taping together for years. Here's what that looks like.</p>
             </div>
+            <span class="len">2 min</span>
             <span class="arrow" aria-hidden="true">&nearr;</span>
           </a>
         </li>
@@ -53,12 +57,19 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <span>&copy; <span data-year>2026</span> James Stein</span>
-      <div class="footer-links">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" width="28" height="28" rx="8"/><rect class="bm-node" x="6.5" y="7.5" width="7" height="5.5" rx="1.6"/><rect class="bm-hot" x="14.5" y="15" width="7" height="5.5" rx="1.6"/><path class="bm-line" d="M13.5 10.25h2.75a1.75 1.75 0 0 1 1.75 1.75V15"/></svg>James Stein</a>
+        <p>AI integrations, automation &amp; custom software.<br>DeLand, Florida.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
         <a href="contact.html" data-contact>Contact</a>
         <a href="about.html">About</a>
         <a href="blog.html">Journal</a>
+      </nav>
+      <div class="footer-meta">
+        <span class="status"><span class="live-dot" aria-hidden="true"></span>All systems normal</span>
+        <span>&copy; <span data-year>2026</span> James Stein</span>
       </div>
     </div>
   </footer>
